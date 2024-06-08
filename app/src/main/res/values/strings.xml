@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kuchtuj</string>
+
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+    <string name="drawer_authors">Authors:</string>
+    <string name="drawer_name1">Kacper Magnuszewski</string>
+    <string name="drawer_name2">Varvara</string>
+    <string name="drawer_saved">Saved</string>
+    <string name="drawer_about">About</string>
+</resources>
