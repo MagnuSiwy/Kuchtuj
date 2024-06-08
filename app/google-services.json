@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983853398864",
+    "project_id": "kuchtuj",
+    "storage_bucket": "kuchtuj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983853398864:android:d92336dff2112a381a8a55",
+        "android_client_info": {
+          "package_name": "com.example.kuchtuj_v2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUwDadG7Sne0MNMUVODUJ3aS8M2fyBIlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

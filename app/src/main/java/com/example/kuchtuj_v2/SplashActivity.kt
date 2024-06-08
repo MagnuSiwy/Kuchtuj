@@ -24,7 +24,7 @@ class SplashActivity: AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed(object : Runnable {
             override fun run() {
-                startActivity(Intent(this@SplashActivity, CreateAccountActivity::class.java))
+                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
                 finish()
             }
         }, 1000)
