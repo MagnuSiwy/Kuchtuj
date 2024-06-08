@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var fragment: Fragment? = null
 
         when (id) {
-            R.id.drawer_saved -> fragment = RecipesFragment()
+            R.id.drawer_recipes -> fragment = RecipesFragment()
+            R.id.drawer_add_recipe -> fragment = RecipeDetailsActivity()
             R.id.drawer_about -> fragment = AboutFragment()
             else -> fragment = RecipesFragment()
         }

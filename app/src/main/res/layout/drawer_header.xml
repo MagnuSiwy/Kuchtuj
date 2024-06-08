@@ -19,14 +19,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/drawer_authors"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textColor="@color/white"
+            android:textStyle="bold" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/drawer_name1" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/drawer_name2" />
     </LinearLayout>
 </FrameLayout>
