@@ -81,7 +81,7 @@
             android:padding="8dp"
             android:layout_marginTop="15dp"/>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/create_account_button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
