@@ -21,16 +21,19 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.bumptech.glide.Glide
+import org.w3c.dom.Text
 import java.util.UUID
 
 
 class RecipeDetailsFragment: Fragment() {
     private lateinit var recipeName: EditText
+    private lateinit var componentsTextView: TextView
+    private lateinit var instructionsTextView: TextView
     private lateinit var recipeComponents: EditText
     private lateinit var recipeContent: EditText
-    private lateinit var chooseImageButton: Button
-    private lateinit var saveRecipeButton: Button
-    private lateinit var deleteRecipeButton: TextView
+    private lateinit var chooseImageButton: ImageButton
+    private lateinit var saveRecipeButton: ImageButton
+    private lateinit var deleteRecipeButton: ImageButton
     private lateinit var editButton: ImageButton
     private lateinit var recipeImage: ImageView
     private var image: String? = null
@@ -38,25 +41,30 @@ class RecipeDetailsFragment: Fragment() {
     private var component: String? = null
     private var content: String? = null
     private var recipeID: String? = null
+    private var currentImage: String? = null
     private var isCreationMode = false
     private var filePath: Uri? = null
     private val PICK_IMAGE_REQUEST = 1
 
-    fun enterEditMode() {
+    private fun enterEditMode() {
+        componentsTextView.visibility = View.GONE
+        instructionsTextView.visibility = View.GONE
         deleteRecipeButton.visibility = View.VISIBLE
         saveRecipeButton.visibility = View.VISIBLE
         chooseImageButton.visibility = View.VISIBLE
         editButton.visibility = View.GONE
     }
 
-    fun enterCreationMode() {
+    private fun enterCreationMode() {
+        componentsTextView.visibility = View.GONE
+        instructionsTextView.visibility = View.GONE
         deleteRecipeButton.visibility = View.GONE
         saveRecipeButton.visibility = View.VISIBLE
         chooseImageButton.visibility = View.VISIBLE
         editButton.visibility = View.GONE
     }
 
-    fun getCollectionReferenceForRecipes(): CollectionReference {
+    private fun getCollectionReferenceForRecipes(): CollectionReference {
         val currentUser = FirebaseAuth.getInstance().currentUser
         return FirebaseFirestore.getInstance().collection("recipes")
             .document(currentUser!!.uid).collection("my_recipes")
@@ -66,6 +74,8 @@ class RecipeDetailsFragment: Fragment() {
         val view = inflater.inflate(R.layout.fragment_recipe_details, container, false)
 
         recipeName = view.findViewById(R.id.recipe_name)
+        componentsTextView = view.findViewById(R.id.components_text_view)
+        instructionsTextView = view.findViewById(R.id.instructions_text_view)
         recipeComponents = view.findViewById(R.id.recipe_components)
         recipeContent = view.findViewById(R.id.recipe_content)
         chooseImageButton = view.findViewById(R.id.choose_image_button)
@@ -86,15 +96,12 @@ class RecipeDetailsFragment: Fragment() {
 
         if (!image.isNullOrEmpty()) {
             Glide.with(this).load(image).into(recipeImage)
+            currentImage = image
         }
 
         if (recipeID.isNullOrEmpty()) {
             isCreationMode = true
             enterCreationMode()
-        }
-
-        if (isCreationMode) {
-            recipeID = getCollectionReferenceForRecipes().document().id
         }
 
         saveRecipeButton.setOnClickListener { saveRecipe() }
@@ -118,10 +125,15 @@ class RecipeDetailsFragment: Fragment() {
         }
 
         val recipe = Recipe().apply {
+            image = currentImage
             name = recipeNameVal
             component = recipeComponentsVal
             content = recipeContentVal
             timestamp = Timestamp.now()
+        }
+
+        if (isCreationMode) {
+            recipeID = getCollectionReferenceForRecipes().document().id
         }
 
         saveRecipeToFirebase(recipe)

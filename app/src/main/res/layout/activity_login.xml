@@ -12,8 +12,9 @@
         android:id="@+id/login_icon"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        style="@style/iconsTint"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/sign_up" />
+        android:src="@drawable/icon_login" />
 
     <LinearLayout
         android:id="@+id/welcome_text"
@@ -72,7 +73,7 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:background="@drawable/button"
+            android:background="@drawable/button_green"
             android:text="Login"
             android:layout_marginTop="70dp"
             android:textSize="16dp" />
