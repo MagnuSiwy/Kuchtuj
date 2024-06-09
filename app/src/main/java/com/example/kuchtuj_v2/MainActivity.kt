@@ -8,7 +8,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -33,10 +39,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.content_frame, RecipesFragment())
-        ft.addToBackStack(null)
-        ft.commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+            .replace(R.id.content_frame, RecipesFragment())
+            .commit()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -45,7 +52,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (id) {
             R.id.drawer_recipes -> fragment = RecipesFragment()
-            R.id.drawer_add_recipe -> fragment = RecipeDetailsActivity()
+            R.id.drawer_add_recipe -> fragment = RecipeDetailsFragment()
             R.id.drawer_about -> fragment = AboutFragment()
             else -> fragment = RecipesFragment()
         }
@@ -60,4 +67,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         return true
     }
+
+    fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.content_frame, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 }

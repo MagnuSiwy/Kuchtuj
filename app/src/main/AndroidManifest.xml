@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_kuchtuj"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_kuchtuj_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kuchtuj"
         tools:targetApi="31">
@@ -20,6 +20,9 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RecipeDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".SplashActivity"

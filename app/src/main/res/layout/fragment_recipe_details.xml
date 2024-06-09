@@ -12,6 +12,11 @@
         android:padding="16dp"
         android:layout_marginVertical="26dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +36,7 @@
                 android:padding="12dp" />
 
             <Button
-                android:id="@+id/choose_button"
+                android:id="@+id/choose_image_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -39,7 +44,18 @@
                 android:padding="8dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="Choose image" />
+                android:text="Choose image"
+                android:visibility="gone"/>
+
+            <ImageButton
+                android:id="@+id/edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit_button"
+                android:padding="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:visibility="visible"/>
 
         </LinearLayout>
 
@@ -77,23 +93,28 @@
         android:gravity="center" >
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:padding="12dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:id="@+id/delete_recipe_button"
             android:text="Delete note"
             android:gravity="center"
             android:background="@drawable/button"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/save_button"
             android:padding="12dp"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="save note"
             android:background="@drawable/button"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginHorizontal="20dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

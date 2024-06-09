@@ -12,6 +12,7 @@ constraintlayout = "2.1.4"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.0.0"
 identityCredentialAndroid = "20231002"
+firebaseFirestore = "25.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,6 +25,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 identity-credential-android = { group = "com.android.identity", name = "identity-credential-android", version.ref = "identityCredentialAndroid" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+firebase-ui-firestore = { group = "com.firebaseui", name = "firebase-ui-firestore", version = "8.0.2" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
