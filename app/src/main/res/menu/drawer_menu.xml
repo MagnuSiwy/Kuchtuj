@@ -8,8 +8,4 @@
         android:id="@+id/drawer_add_recipe"
         android:icon="@drawable/add"
         android:title="@string/drawer_add_recipe" />
-    <item
-        android:id="@+id/drawer_about"
-        android:icon="@drawable/about"
-        android:title="@string/drawer_about" />
 </menu>

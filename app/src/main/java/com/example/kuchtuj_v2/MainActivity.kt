@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (id) {
             R.id.drawer_recipes -> fragment = RecipesFragment()
             R.id.drawer_add_recipe -> fragment = RecipeDetailsFragment()
-            R.id.drawer_about -> fragment = AboutFragment()
+            //R.id.drawer_about -> fragment = AboutFragment()
             else -> fragment = RecipesFragment()
         }
 

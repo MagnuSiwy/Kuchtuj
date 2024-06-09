@@ -62,6 +62,7 @@ class RecipesFragment: Fragment(), RecipeAdapter.OnRecipeClickListener {
         val mainActivity = requireActivity() as MainActivity
         mainActivity.replaceFragment(RecipeDetailsFragment().apply {
             arguments = Bundle().apply {
+                putString("image", recipe.image)
                 putString("name", recipe.name)
                 putString("component", recipe.component)
                 putString("content", recipe.content)

@@ -13,6 +13,7 @@ googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.0.0"
 identityCredentialAndroid = "20231002"
 firebaseFirestore = "25.0.0"
+firebaseStorage = "21.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +28,9 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 identity-credential-android = { group = "com.android.identity", name = "identity-credential-android", version.ref = "identityCredentialAndroid" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 firebase-ui-firestore = { group = "com.firebaseui", name = "firebase-ui-firestore", version = "8.0.2" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version = "4.11.0" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version = "4.11.0" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

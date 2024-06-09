@@ -46,7 +46,10 @@ dependencies {
     implementation(libs.firebase.ui.firestore)
     implementation(libs.identity.credential.android)
     implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
 }
