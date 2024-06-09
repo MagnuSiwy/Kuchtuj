@@ -5,8 +5,9 @@
     <string name="close_drawer">Close drawer</string>
     <string name="drawer_authors">Authors:</string>
     <string name="drawer_name1">Kacper Magnuszewski</string>
-    <string name="drawer_name2">Varvara</string>
+    <string name="drawer_name2">Varvara Shafarevich</string>
     <string name="drawer_recipes">Recipes</string>
     <string name="drawer_add_recipe">Add recipe</string>
     <string name="drawer_about">About</string>
+    <string name="drawer_logout">Log out</string>
 </resources>

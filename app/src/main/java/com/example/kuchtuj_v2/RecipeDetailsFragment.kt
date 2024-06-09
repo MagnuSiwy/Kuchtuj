@@ -29,10 +29,17 @@ class RecipeDetailsFragment: Fragment() {
     private var component: String? = null
     private var content: String? = null
     private var recipeID: String? = null
-    private var isEditMode = false
+    private var isCreationMode = false
 
     fun enterEditMode() {
         deleteRecipeButton.visibility = View.VISIBLE
+        saveRecipeButton.visibility = View.VISIBLE
+        chooseImageButton.visibility = View.VISIBLE
+        editButton.visibility = View.GONE
+    }
+
+    fun enterCreationMode() {
+        deleteRecipeButton.visibility = View.GONE
         saveRecipeButton.visibility = View.VISIBLE
         chooseImageButton.visibility = View.VISIBLE
         editButton.visibility = View.GONE
@@ -65,14 +72,14 @@ class RecipeDetailsFragment: Fragment() {
         recipeContent.setText(content)
 
         if (recipeID.isNullOrEmpty()) {
-            isEditMode = true
-            enterEditMode()
+            isCreationMode = true
+            enterCreationMode()
         }
 
         saveRecipeButton.setOnClickListener { saveRecipe() }
         deleteRecipeButton.setOnClickListener { deleteRecipeFromFirebase() }
         editButton.setOnClickListener {
-            isEditMode = true
+            isCreationMode = true
             enterEditMode()
         }
 
@@ -100,7 +107,7 @@ class RecipeDetailsFragment: Fragment() {
     }
 
     private fun saveRecipeToFirebase(recipe: Recipe) {
-        val documentReference: DocumentReference = if (isEditMode) {
+        val documentReference: DocumentReference = if (isCreationMode) {
             getCollectionReferenceForRecipes().document(recipeID!!)
         } else {
             getCollectionReferenceForRecipes().document()

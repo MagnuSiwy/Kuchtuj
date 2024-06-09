@@ -1,7 +1,9 @@
 package com.example.kuchtuj_v2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -39,6 +41,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
+        val logoutTextView: TextView = findViewById(R.id.drawer_logout)
+        logoutTextView.setOnClickListener {
+            logoutFromFirebase()
+        }
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
             .replace(R.id.content_frame, RecipesFragment())
@@ -66,6 +73,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer.closeDrawer(GravityCompat.START)
 
         return true
+    }
+
+    private fun logoutFromFirebase() {
+        FirebaseAuth.getInstance().signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     fun replaceFragment(fragment: Fragment) {
