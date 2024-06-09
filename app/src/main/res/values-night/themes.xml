@@ -1,8 +1,8 @@
 <resources>
     <style name="Theme.Kuchtuj" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:windowBackground">@color/colorBackgroundDark</item>
-        <item name="actionBarTheme">@color/colorPrimaryDark</item>
+        <item name="actionBarTheme">@color/colorPrimary</item>
     </style>
 </resources>
