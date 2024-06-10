@@ -3,6 +3,7 @@ package com.example.kuchtuj_v2
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,15 +11,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.example.kuchtuj_v2.RamsayQuotes
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,24 +27,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val drawer: DrawerLayout = findViewById(R.id.drawer_layout)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
             this,
-            drawer,
+            drawerLayout,
             toolbar,
             R.string.open_drawer,
             R.string.close_drawer
         )
-        drawer.addDrawerListener(toggle)
+        drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
-        val navigationView: NavigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
 
         val logoutTextView: TextView = findViewById(R.id.drawer_logout)
         logoutTextView.setOnClickListener {
             logoutFromFirebase()
         }
+
+        setRandomRamsayQuote()
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
@@ -88,4 +89,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .commit()
     }
 
+    private fun setRandomRamsayQuote() {
+        val headerView = navigationView.getHeaderView(0)
+        val drawerQuote: TextView = headerView.findViewById(R.id.drawer_ramsay_quote)
+        val randomQuote = RamsayQuotes.quotes[Random.nextInt(RamsayQuotes.quotes.size)].quote
+        drawerQuote.text = randomQuote
+    }
 }

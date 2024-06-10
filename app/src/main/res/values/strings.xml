@@ -3,9 +3,8 @@
 
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
-    <string name="drawer_authors">Authors:</string>
-    <string name="drawer_name1">Kacper Magnuszewski</string>
-    <string name="drawer_name2">Varvara Shafarevich</string>
+    <string name="drawer_ramsay_quote">\"One lesson to any young chef out there: never mix family with business.\"</string>
+    <string name="drawer_ramsay">~ Gordon Ramsay</string>
     <string name="drawer_recipes">Recipes</string>
     <string name="drawer_add_recipe">Add recipe</string>
     <string name="drawer_about">About</string>
